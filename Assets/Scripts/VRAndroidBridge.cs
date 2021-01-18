@@ -84,9 +84,9 @@ public class VRAndroidBridge : MonoBehaviour
     void Start()
     {
         this.gameObject.name = ANDROIDBRIDGE_GO_NAME;
-
+        
         SetContinuousListening();
-
+        
         startListeningBtn.onClick.AddListener( StartListening );
     }
 
@@ -115,6 +115,8 @@ public class VRAndroidBridge : MonoBehaviour
         {
             resultsTxt.text += result[i] + '\n';
         }
+
+        SendMessageUpwards( "ParsePossibleCommand", result );
     }
 
 }

@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     {
         public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
-        public Transform target;                                    // target to aim for
+        //public Transform target;                                    // target to aim for
 
 
         private void Start()
@@ -25,8 +25,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            if (target != null)
-                agent.SetDestination(target.position);
+            //if (target != null)
+            //    agent.SetDestination(target.position);
 
             if (agent.remainingDistance > agent.stoppingDistance)
                 character.Move(agent.desiredVelocity, false, false);
@@ -37,7 +37,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void SetTarget(Transform target)
         {
-            this.target = target;
+            // YJ: Removed target temporarily.
+            //this.target = target;
+            agent.SetDestination(target.position);
         }
     }
 }
